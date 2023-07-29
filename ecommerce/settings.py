@@ -44,11 +44,16 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    # 
+    
+    # created apps
     'products',
     'cart',
-    'crispy_forms',
+   
     'users',
+    # install apps
+    'crispy_forms',
+    'crispy_bootstrap4',
+    'django_filters',
 
 
 ]

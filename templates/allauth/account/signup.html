@@ -6,8 +6,8 @@
         
     <h1 class="text-center my-5">Sign Up</h1>
     
-    <form class="signup" id="signup_form" method="post" action="/accounts/signup/">
-        <input type="hidden" name="csrfmiddlewaretoken" value="9gsUNhCleKjBpITcCSr5Y6uYv6b61Wt4OCGeBo9FefrIdYQk8w4ejCHMjWNuWOZo">
+    <form class="signup" id="signup_form" method="post" action="/accounts/signup/">{% csrf_token %}
+        {% comment %} <input type="hidden" name="csrfmiddlewaretoken" value="9gsUNhCleKjBpITcCSr5Y6uYv6b61Wt4OCGeBo9FefrIdYQk8w4ejCHMjWNuWOZo"> {% endcomment %}
       
       <div class="row">
         <div class="col-sm-12">

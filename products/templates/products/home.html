@@ -1,43 +1,60 @@
 {% extends 'products/base.html' %}
-
-{% comment %} {% load crispy_forms_tags %} {% endcomment %}
-
+{% load crispy_forms_tags %}
 {% block content %}
 
-  <div class="container my-5">
-  	<h2 class="my-5 text-center">Featured Products</h2>
-    <div class="row">
-   
-    <div class="col-md-9">
-		<div class="row">
-			{% for product in products %}
-		  <div class="col-md-6 col-sm-12 col-lg-4">
-			<figure class="card card-product">
-				<div class="img-wrap"> 
-					<img src="{{ product.mainimage.url }}" style="width: 100%; height: 300px;">
-				</div>
-				<figcaption class="info-wrap">
-					<h6 class="title text-dots"><a href="">{{ product.name }}</a></h6>
-					
-					<div class="action-wrap">
-						<div class="price-wrap h5">
-							<span class="price-new">${{product.price}}</span>
-							<del class="price-old">$1980</del>
-						</div> 
-						 <div class="price-wrap h5">
-							<a href="cart/{{ product.slug }}" class="btn btn-primary btn-sm"> Add to Cart </a>
-            
-           					<a href="remove/{{ product.slug }}" class="btn btn-danger btn-sm"> Remove</a>
-						
-						</div> 
-						
-					</div> <!-- action-wrap -->
-				</figcaption>
-			</figure> <!-- card // -->
-		</div> <!-- col // -->
-      {% endfor %}
-		</div>
-	</div>
-  </div>
-  </div>
+<div class="container my-5">
+   <h2 class="my-5 text-center">Featured Products</h2>
+   <div class="row">
+      <div class="col-md-3">
+         <!-- <form method="get">
+            {{ filter.form| crispy }}
+            <button class="btn btn-primary" type="submit">Search</button>
+         </form> -->
+         <form method="get">
+			<label for="">
+				Search By Name:
+			</label>
+			
+            {{ filter.form.name}}
+			<br>
+			<label for="">
+				Search By Name:
+			</label>
+			
+            {{ filter.form.price}}
+
+            <button class="btn btn-primary my-2" type="submit">Search</button>
+         </form>
+      </div>
+      <div class="col-md-9">
+         <div class="row">
+            {% for product in filter.qs %}
+            <div class="col-md-6 col-sm-12 col-lg-4">
+               <figure class="card card-product">
+                  <div class="img-wrap"> 
+                     <img src="media/{{ product.mainimage }}" style="width: 100%; height: 300px;">
+                  </div>
+                  <figcaption class="info-wrap">
+                     <h6 class="title text-dots"><a href="#">{{ product.name }}</a></h6>
+                     <div class="action-wrap">
+						<a href="cart/{{ product.slug }}" class="btn btn-primary btn-sm"> Add to Cart </a>
+						<a href="remove/{{ product.slug }}" class="btn btn-danger btn-sm"> Remove</a>
+                         <!-- <a href="cart/" class="btn btn-primary btn-sm"> View Cart </a> -->
+                    
+                        <div class="price-wrap h5">
+                           <span class="price-new">${{product.price}}</span>
+                           <del class="price-old">$1980</del>
+                        </div>
+                     </div>
+                     <!-- action-wrap -->
+                  </figcaption>
+               </figure>
+               <!-- card // -->
+            </div>
+            <!-- col // -->
+            {% endfor %}
+         </div>
+      </div>
+   </div>
+</div>
 {% endblock %}
