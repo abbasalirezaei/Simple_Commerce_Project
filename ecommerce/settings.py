@@ -41,10 +41,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # 
     'django.contrib.sites',
-<<<<<<< HEAD
-
-=======
->>>>>>> 53bfb72 (added login and register)
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
