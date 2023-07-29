@@ -67,7 +67,7 @@ def remove_from_cart(request, slug):
             return redirect("mainapp:home")
     else:
         messages.info(request, "You do not have an active order")
-        return redirect("core:home")
+        return redirect("mainapp:home")
 
 # Cart View
 
@@ -84,7 +84,7 @@ def CartView(request):
 		
     else:
         messages.warning(request, "You do not have an active order")
-        return redirect("core:home")
+        return redirect("mainapp:home")
 
 def decreaseCart(request, slug):
     item = get_object_or_404(Product, slug=slug)

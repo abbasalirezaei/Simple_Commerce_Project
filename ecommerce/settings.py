@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-q2(p4ed*iqu_!6l*oee0j#txk%!!@mp$uxa4cm$diqt+_76xr)
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+CSRF_TRUSTED_ORIGINS=['http://127.0.0.1:8000']
 
 # Application definition
 
@@ -41,7 +41,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # 
     'django.contrib.sites',
+<<<<<<< HEAD
 
+=======
+>>>>>>> 53bfb72 (added login and register)
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -49,10 +52,13 @@ INSTALLED_APPS = [
     'products',
     'cart',
     'crispy_forms',
+    'users',
 
 
 ]
 
+SITE_ID = 1
+LOGIN_REDIRECT_URL = '/'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
     
 MIDDLEWARE = [
@@ -70,7 +76,7 @@ ROOT_URLCONF = 'ecommerce.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates'), os.path.join(BASE_DIR, 'templates', 'allauth')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -140,3 +146,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staic')
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+   #add this to line it works
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+ACCOUNT_EMAIL_VERIFICATION = "none"

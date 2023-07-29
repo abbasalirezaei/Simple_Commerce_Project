@@ -1,5 +1,6 @@
 {% extends 'products/base.html' %}
 
+<<<<<<< HEAD
 
 {% block content %}
     
@@ -44,3 +45,61 @@
 </form>
 {% endblock content %}
     
+=======
+<!-- {% block title %}
+Sign In 
+{% endblock title %} -->
+{% block content %}
+
+
+  
+<div class="container container-fluid">
+    
+    <h1 class="text-center my-5">
+        Sign In 
+    </h1>
+
+
+
+
+    <form class="login" method="POST" action="/accounts/login/">
+        {% csrf_token %}
+        <!-- <input type="hidden" name="csrfmiddlewaretoken" value="8Mnlepb4US1MYKveJOl1mcDw3lpVyfql2GlpSNsKdVMfupSfLIfmkjOusdr7WQiu"> -->
+
+        <div class="row">
+            <div class="col-sm-6">
+                <label for="id_login">Username:</label>
+                <input class="form-control" type="text" name="login"
+                 placeholder="Username" autocomplete="username" maxlength="150" required id="id_login">
+           
+            </div>
+            <div class="col-sm-6">
+                <label for="id_password">Password:</label>
+                <input class="form-control" type="password" name="password" placeholder="Password" autocomplete="current-password" required id="id_password">
+           
+            </div>
+            <div class="col-sm-12">
+                <button class="btn btn-success my-3" type="submit">Sign In</button>
+            </div>
+            <div class="col-sm-6">
+                <p>If you have not created an account yet, then please
+                    <a href="/accounts/signup/">sign up</a> first.</p>
+                    <a class="button secondaryAction" href="/accounts/password/reset/">Forgot Password?</a><br>
+    
+            </div>
+
+        </div>
+
+
+   
+    
+   
+    </form>
+
+   
+
+</div>
+
+{% endblock content %}
+   
+>>>>>>> 53bfb72 (added login and register)
