@@ -48,12 +48,13 @@ INSTALLED_APPS = [
     # created apps
     'products',
     'cart',
-   'checkout',
+    'checkout',
     'users',
     # install apps
     'crispy_forms',
     'crispy_bootstrap4',
     'django_filters',
+    'stripe'
 
 
 ]
@@ -61,7 +62,10 @@ INSTALLED_APPS = [
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
-    
+
+STRIPE_SECRET_KEY = 'your test secret key'
+STRIPE_PUBLISHABLE_KEY = 'your test publishable key'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

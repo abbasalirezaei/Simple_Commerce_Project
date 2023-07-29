@@ -1,11 +1,11 @@
 from django.db import models
+from django.forms import ModelForm # import models form form django forms
 from django.contrib.auth import get_user_model
 # Create your models here.
 
 # Get the user model
 User = get_user_model()
 
-# Billing Address Model
 class BillingAddress(models.Model):
 
 	user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -19,3 +19,11 @@ class BillingAddress(models.Model):
 
 	class Meta:
 		verbose_name_plural = "Billing Addresses"
+
+
+# Address Form
+class BillingForm(ModelForm):
+
+	class Meta:
+		model = BillingAddress
+		fields = ['address', 'zipcode', 'city', 'landmark']
